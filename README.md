@@ -1,0 +1,2 @@
+# Maze
+Escape or die.
