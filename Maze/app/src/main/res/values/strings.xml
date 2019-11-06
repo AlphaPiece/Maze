@@ -1,12 +1,18 @@
 <resources>
     <string name="app_name">Maze</string>
+
     <string name="mainTitle">Maze</string>
     <string name="mainStartButton">Start</string>
+
+    <string name="modeTitle">Choose a mode:</string>
+    <string name="monsterModeButton">Monster Mode</string>
+    <string name="killerModeButton">Killer Mode</string>
+
     <string name="mazeLeftButton">LeftButton</string>
     <string name="mazeRightButton">RightButton</string>
     <string name="mazeUpwardButton">UpwardButton</string>
     <string name="mazeDownwardButton">DownwardButton</string>
-    <string name="monsterModeButton">Monster Mode</string>
+
     <string name="skullImage">Skull</string>
     <string name="treasureImage">Treasure</string>
     <string name="stateTimer">3</string>

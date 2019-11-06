@@ -7,14 +7,38 @@
     android:onClick="clickMonsterModeButton"
     tools:context=".ModeActivity">
 
-    <Button
-        android:id="@+id/button"
+    <TextView
+        android:id="@+id/modeTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
-        android:onClick="clickMonsterModeButton"
-        android:text="@string/monsterModeButton"
+        android:layout_marginTop="100dp"
+        android:text="@string/modeTitle"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/monsterModeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:onClick="clickMonsterModeButton"
+        android:text="@string/monsterModeButton"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/modeTitle" />
+
+    <Button
+        android:id="@+id/killerModeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="@string/killerModeButton"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/monsterModeButton" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
