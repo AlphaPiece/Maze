@@ -44,12 +44,12 @@ class MonsterModeMaze extends Maze {
         }
     }
 
-    void moveAdventurer(int direction) {
-        super.moveAdventurer(direction);
+    void movePlayer(int direction) {
+        super.movePlayer(direction);
         moveMonsters();
         for (int i = 0; i < numberOfMonsters; i++) {
-            if (adventurer == monsters[i]) {
-                adventurerIsDead = true;
+            if (player == monsters[i]) {
+                playerIsDead = true;
                 return;
             }
         }

@@ -7,23 +7,23 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.widget.TextView;
 
-public class DeadStateActivity extends AppCompatActivity {
+public class SurvivalStateActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dead_state);
+        setContentView(R.layout.activity_survival_state);
 
         new CountDownTimer(4000, 1000) {
 
-            TextView stateTimer = findViewById(R.id.deadStateTimer);
+            TextView stateTimer = findViewById(R.id.survivalStateTimer);
 
             public void onTick(long millisUntilFinished) {
                 stateTimer.setText(String.valueOf(millisUntilFinished / 1000));
             }
 
             public void onFinish() {
-                Intent intent = new Intent(DeadStateActivity.this,
+                Intent intent = new Intent(SurvivalStateActivity.this,
                         ModeActivity.class);
                 startActivity(intent);
             }

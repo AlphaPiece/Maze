@@ -8,5 +8,6 @@
     <string name="mazeDownwardButton">DownwardButton</string>
     <string name="monsterModeButton">Monster Mode</string>
     <string name="skullImage">Skull</string>
-    <string name="statusTimer">3</string>
+    <string name="treasureImage">Treasure</string>
+    <string name="stateTimer">3</string>
 </resources>

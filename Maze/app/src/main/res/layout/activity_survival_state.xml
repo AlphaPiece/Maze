@@ -4,29 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DeadStateActivity">
+    tools:context=".SurvivalStateActivity">
 
     <ImageView
-        android:id="@+id/skullImage"
-        android:layout_width="436dp"
-        android:layout_height="754dp"
-        android:contentDescription="@string/skullImage"
+        android:id="@+id/treasureImage"
+        android:layout_width="427dp"
+        android:layout_height="731dp"
+        android:contentDescription="@string/treasureImage"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/skull" />
+        app:srcCompat="@drawable/treasure" />
 
     <TextView
-        android:id="@+id/statusTimer"
-        android:layout_width="21dp"
-        android:layout_height="41dp"
+        android:id="@+id/survivalStateTimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="80dp"
-        android:text="@string/statusTimer"
+        android:text="@string/stateTimer"
         android:textSize="36sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/treasureImage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

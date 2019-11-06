@@ -7,10 +7,10 @@ import java.util.Stack;
 
 class Maze implements Serializable {
     Cell[][] cells;
-    Cell adventurer, exit;
+    Cell player, exit;
 
-    boolean adventurerIsDead;
-    boolean mazeEscape;
+    boolean playerIsDead;
+    boolean playerEscapes;
 
     static final int COLS = 6;
     static final int ROWS = 9;
@@ -32,8 +32,8 @@ class Maze implements Serializable {
         Stack<Cell> visitedCells = new Stack<>();
         Cell current, next;
 
-        adventurerIsDead = false;
-        mazeEscape = false;
+        playerIsDead = false;
+        playerEscapes = false;
 
         // Create a 2d array of cells.
         for (int i = 0; i < COLS; i++) {
@@ -61,7 +61,7 @@ class Maze implements Serializable {
         } while (!visitedCells.isEmpty());
 
         // Top left corner.
-        adventurer = cells[0][0];
+        player = cells[0][0];
         // Bottom right corner.
         exit = cells[COLS - 1][ROWS - 1];
     }
@@ -114,28 +114,26 @@ class Maze implements Serializable {
         }
     }
 
-    void moveAdventurer(int direction) {
+    void movePlayer(int direction) {
         switch (direction) {
             case Maze.LEFT:
-                if (adventurer.isValidDirection(LEFT))
-                    adventurer = cells[adventurer.col - 1][adventurer.row];
+                if (player.isValidDirection(LEFT))
+                    player = cells[player.col - 1][player.row];
                 break;
             case Maze.RIGHT:
-                if (adventurer.isValidDirection(RIGHT))
-                    adventurer = cells[adventurer.col + 1][adventurer.row];
+                if (player.isValidDirection(RIGHT))
+                    player = cells[player.col + 1][player.row];
                 break;
             case Maze.UPWARD:
-                if (adventurer.isValidDirection(UPWARD))
-                    adventurer = cells[adventurer.col][adventurer.row - 1];
+                if (player.isValidDirection(UPWARD))
+                    player = cells[player.col][player.row - 1];
                 break;
             case Maze.DOWNWARD:
-                if (adventurer.isValidDirection(DOWNWARD))
-                    adventurer = cells[adventurer.col][adventurer.row + 1];
+                if (player.isValidDirection(DOWNWARD))
+                    player = cells[player.col][player.row + 1];
                 break;
         }
-        if (adventurer == exit)
-            createMaze();
+        if (player == exit)
+            playerEscapes = true;
     }
-
-
 }

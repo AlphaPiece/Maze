@@ -11,7 +11,7 @@ import android.view.View;
 
 public class MazeView extends View {
     Maze maze;
-    private Paint wallPaint, adventurerPaint, exitPaint, minotaurPaint;
+    private Paint wallPaint, playerPaint, exitPaint, minotaurPaint;
 
     private float cellSize, hMargin, vMargin;
 
@@ -25,8 +25,8 @@ public class MazeView extends View {
         wallPaint.setColor(Color.BLACK);
         wallPaint.setStrokeWidth(Maze.WALL_THICKNESS);
 
-        adventurerPaint = new Paint();
-        adventurerPaint.setColor(Color.BLUE);
+        playerPaint = new Paint();
+        playerPaint.setColor(Color.BLUE);
 
         exitPaint = new Paint();
         exitPaint.setColor(Color.BLACK);
@@ -79,15 +79,15 @@ public class MazeView extends View {
             }
         }
 
-        // Draw adventurer and exit squares.
+        // Draw player and exit squares.
 
         float margin = cellSize / 7;
 
-        canvas.drawRect(maze.adventurer.col * cellSize + margin,
-                maze.adventurer.row * cellSize + margin,
-                (maze.adventurer.col + 1) * cellSize - margin,
-                (maze.adventurer.row + 1) * cellSize - margin,
-                adventurerPaint);
+        canvas.drawRect(maze.player.col * cellSize + margin,
+                maze.player.row * cellSize + margin,
+                (maze.player.col + 1) * cellSize - margin,
+                (maze.player.row + 1) * cellSize - margin,
+                playerPaint);
 
         canvas.drawRect(maze.exit.col * cellSize + margin,
                 maze.exit.row * cellSize + margin,
@@ -114,7 +114,7 @@ public class MazeView extends View {
     }
 
     void updateMaze(int direction) {
-        maze.moveAdventurer(direction);
+        maze.movePlayer(direction);
         invalidate();
     }
 }

@@ -34,8 +34,11 @@ public class MazeActivity extends AppCompatActivity {
             System.out.println("Error: invalid button");
         }
 
-        if (mazeView.maze.adventurerIsDead) {
+        if (mazeView.maze.playerIsDead) {
             Intent intent = new Intent(this, DeadStateActivity.class);
+            startActivity(intent);
+        } else if (mazeView.maze.playerEscapes) {
+            Intent intent = new Intent(this, SurvivalStateActivity.class);
             startActivity(intent);
         }
     }
