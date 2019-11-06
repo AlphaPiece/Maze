@@ -8,8 +8,6 @@ class MonsterModeMaze extends Maze {
 
     MonsterModeMaze() {
         super();
-
-        // Random positions.
         numberOfMonsters = COLS * ROWS / 18;
         createMonsters();
     }

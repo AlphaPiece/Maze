@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 public class ModeActivity extends AppCompatActivity {
     static String modeString;
@@ -15,8 +16,9 @@ public class ModeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_mode);
     }
 
-    public void clickMonsterModeButton(View view) {
-        modeString = "MonsterMode";
+    public void clickModeButton(View view) {
+        Button button = (Button) view;
+        modeString = button.getText().toString();
         Intent intent = new Intent(this, MazeActivity.class);
         startActivity(intent);
     }

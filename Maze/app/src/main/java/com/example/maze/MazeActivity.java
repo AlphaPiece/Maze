@@ -18,7 +18,7 @@ public class MazeActivity extends AppCompatActivity {
         mazeView = findViewById(R.id.mazeView);
     }
 
-    public void clickButton(View view)
+    public void clickDirectionButton(View view)
     {
         ImageButton button = (ImageButton) view;
         String contentDescription = button.getContentDescription().toString();

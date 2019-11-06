@@ -6,21 +6,26 @@ import android.graphics.Color;
 import androidx.annotation.Nullable;
 
 import android.graphics.Paint;
+import android.media.midi.MidiOutputPort;
 import android.util.AttributeSet;
 import android.view.View;
 
 public class MazeView extends View {
     Maze maze;
-    private Paint wallPaint, playerPaint, exitPaint, minotaurPaint;
+    private Paint wallPaint, playerPaint, exitPaint;
+    private Paint monsterPaint;
+    private Paint killerPaint, detectivePaint;
 
     private float cellSize, hMargin, vMargin;
 
     public MazeView(Context context, @Nullable AttributeSet attrs)
     {
         super(context, attrs);
+        mazeSetup();
+        modeSetup();
+    }
 
-        maze = new MonsterModeMaze();
-
+    private void mazeSetup() {
         wallPaint = new Paint();
         wallPaint.setColor(Color.BLACK);
         wallPaint.setStrokeWidth(Maze.WALL_THICKNESS);
@@ -30,9 +35,21 @@ public class MazeView extends View {
 
         exitPaint = new Paint();
         exitPaint.setColor(Color.BLACK);
+    }
 
-        minotaurPaint = new Paint();
-        minotaurPaint.setColor(Color.RED);
+    private void modeSetup() {
+
+        if (ModeActivity.modeString.equals("Monster Mode")) {
+            maze = new MonsterModeMaze();
+            monsterPaint = new Paint();
+            monsterPaint.setColor(Color.RED);
+        } else if (ModeActivity.modeString.equals("Killer Mode")) {
+            maze = new KillerModeMaze();
+            killerPaint = new Paint();
+            killerPaint.setColor(Color.MAGENTA);
+            detectivePaint = new Paint();
+            detectivePaint.setColor(Color.YELLOW);
+        }
     }
 
     @Override
@@ -95,8 +112,10 @@ public class MazeView extends View {
                 (maze.exit.row + 1) * cellSize - margin,
                 exitPaint);
 
-        if (ModeActivity.modeString.equals("MonsterMode")) {
+        if (ModeActivity.modeString.equals("Monster Mode")) {
             monsterModeDraw(canvas, margin);
+        } else if (ModeActivity.modeString.equals("Killer Mode")) {
+            killerModeDraw(canvas, margin);
         } else {
             System.out.println("Error: No such maze mode");
         }
@@ -109,8 +128,22 @@ public class MazeView extends View {
                     monsterModeMaze.monsters[i].row * cellSize + margin,
                     (monsterModeMaze.monsters[i].col + 1) * cellSize - margin,
                     (monsterModeMaze.monsters[i].row + 1) * cellSize - margin,
-                    minotaurPaint);
+                    monsterPaint);
         }
+    }
+
+    private void killerModeDraw(Canvas canvas, float margin) {
+        KillerModeMaze killerModeMaze = (KillerModeMaze) maze;
+        canvas.drawRect(killerModeMaze.killer.col * cellSize + margin,
+                killerModeMaze.killer.row * cellSize + margin,
+                (killerModeMaze.killer.col + 1) * cellSize - margin,
+                (killerModeMaze.killer.row + 1) * cellSize - margin,
+                killerPaint);
+        canvas.drawRect(killerModeMaze.detective.col * cellSize + margin,
+                killerModeMaze.detective.row * cellSize + margin,
+                (killerModeMaze.detective.col + 1) * cellSize - margin,
+                (killerModeMaze.detective.row + 1) * cellSize - margin,
+                detectivePaint);
     }
 
     void updateMaze(int direction) {
