@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".StatusActivity"></activity>
+        <activity android:name=".DeadStateActivity"></activity>
         <activity android:name=".ModeActivity" />
         <activity android:name=".MazeActivity" />
         <activity android:name=".MainActivity">

@@ -35,7 +35,7 @@ public class MazeActivity extends AppCompatActivity {
         }
 
         if (mazeView.maze.adventurerIsDead) {
-            Intent intent = new Intent(this, StatusActivity.class);
+            Intent intent = new Intent(this, DeadStateActivity.class);
             startActivity(intent);
         }
     }

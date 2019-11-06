@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.widget.TextView;
 
-public class StatusActivity extends AppCompatActivity {
+public class DeadStateActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +23,8 @@ public class StatusActivity extends AppCompatActivity {
             }
 
             public void onFinish() {
-                Intent intent = new Intent(StatusActivity.this, ModeActivity.class);
+                Intent intent = new Intent(DeadStateActivity.this,
+                        ModeActivity.class);
                 startActivity(intent);
             }
 
