@@ -52,4 +52,10 @@ class MonsterModeMaze extends Maze {
             }
         }
     }
+
+    void restartMaze() {
+        super.restartMaze();
+        numberOfMonsters = COLS * ROWS / 18;
+        createMonsters();
+    }
 }

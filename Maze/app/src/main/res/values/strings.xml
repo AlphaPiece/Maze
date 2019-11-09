@@ -8,6 +8,9 @@
     <string name="monsterModeButton">Monster Mode</string>
     <string name="killerModeButton">Killer Mode</string>
 
+    <string name="mazeQuitButton">Quit</string>
+    <string name="mazeSaveButton">Save</string>
+    <string name="mazeRestartButton">Restart</string>
     <string name="mazeLeftButton">LeftButton</string>
     <string name="mazeRightButton">RightButton</string>
     <string name="mazeUpwardButton">UpwardButton</string>

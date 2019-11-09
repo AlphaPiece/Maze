@@ -152,4 +152,9 @@ public class MazeView extends View {
         maze.movePlayer(direction);
         invalidate();
     }
+
+    void restartMaze() {
+        maze.restartMaze();
+        invalidate();
+    }
 }

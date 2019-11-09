@@ -145,4 +145,14 @@ public class KillerModeMaze extends Maze {
             return;
         }
     }
+
+    void restartMaze() {
+        super.restartMaze();
+        createRoles();
+        killerPath = null;
+        detectivePath = null;
+        killerSteps = 0;
+        detectiveSteps = 0;
+        killerIsCatched = false;
+    }
 }

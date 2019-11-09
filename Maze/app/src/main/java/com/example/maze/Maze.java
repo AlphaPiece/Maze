@@ -145,4 +145,10 @@ class Maze implements Serializable {
             }
         }
     }
+
+    void restartMaze() {
+        player = cells[0][0];
+        playerIsDead = false;
+        playerEscapes = false;
+    }
 }
