@@ -10,6 +10,7 @@
 
     <string name="mazeQuitButton">Quit</string>
     <string name="mazeSaveButton">Save</string>
+    <string name="mazeRecreateButton">Recreate</string>
     <string name="mazeRestartButton">Restart</string>
     <string name="mazeLeftButton">LeftButton</string>
     <string name="mazeRightButton">RightButton</string>

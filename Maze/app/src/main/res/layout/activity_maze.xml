@@ -75,6 +75,7 @@
         android:layout_marginTop="4dp"
         android:onClick="clickFunctionButton"
         android:text="@string/mazeQuitButton"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -82,20 +83,36 @@
         android:id="@+id/mazeSaveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
         android:onClick="clickFunctionButton"
         android:text="@string/mazeSaveButton"
-        app:layout_constraintBaseline_toBaselineOf="@+id/mazeQuitButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/mazeQuitButton"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/mazeRestartButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="4dp"
         android:onClick="clickFunctionButton"
         android:text="@string/mazeRestartButton"
-        app:layout_constraintBaseline_toBaselineOf="@+id/mazeSaveButton"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/mazeRecreateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:onClick="clickFunctionButton"
+        android:text="@string/mazeRecreateButton"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/mazeRestartButton"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

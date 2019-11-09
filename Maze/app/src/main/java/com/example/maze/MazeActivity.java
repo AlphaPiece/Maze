@@ -51,6 +51,8 @@ public class MazeActivity extends AppCompatActivity {
             startActivity(intent);
         } else if (text.equals("Save")) {
 
+        } else if (text.equals("Recreate")) {
+            recreate();
         } else if (text.equals("Restart")) {
             mazeView.restartMaze();
         } else {
