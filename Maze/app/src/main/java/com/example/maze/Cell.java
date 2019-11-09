@@ -48,6 +48,11 @@ class Cell implements Serializable {
         return false;
     }
 
+    /**
+     * Print the current location of the cell.
+     *
+     * Used for debugging.
+     */
     void printCell() {
         System.out.print("(");
         System.out.print(this.col);

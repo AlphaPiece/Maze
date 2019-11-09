@@ -6,12 +6,13 @@ import java.util.ArrayDeque;
 public class KillerModeMaze extends Maze {
     Cell killer, detective;
     ArrayDeque<Cell> killerPath, detectivePath;
-    int countSteps;
+    int killerSteps, detectiveSteps;
+    boolean killerIsCatched;
 
     KillerModeMaze() {
         super();
         createRoles();
-        countSteps = 0;
+        killerIsCatched = false;
     }
 
     private void createRoles() {
@@ -19,6 +20,11 @@ public class KillerModeMaze extends Maze {
         detective = cells[COLS - 1][0];
     }
 
+    /**
+     * Find the path for the killer to catch the player.
+     *
+     * Precondition: killer != player
+     */
     private void findKillerPath() {
         Cell current, next;
         killerPath = new ArrayDeque<>();
@@ -41,8 +47,35 @@ public class KillerModeMaze extends Maze {
             }
         }
         killerPath.pollFirst();
-        for (Cell cell : killerPath)
-            cell.printCell();
+    }
+
+    /**
+     * Find the path for the detective to catch the killer.
+     *
+     * Precondition: detective != killer
+     */
+    private void findDetectivePath() {
+        Cell current, next;
+        detectivePath = new ArrayDeque<>();
+        clearVisitedMarks();
+        current = detective;
+        current.visited = true;
+
+        while (true) {
+            next = nextNotVisitedCell(current);
+            if (next == killer) {
+                detectivePath.addLast(current);
+                detectivePath.addLast(next);
+                break;
+            } else if (next != null) {
+                detectivePath.addLast(current);
+                current = next;
+                current.visited = true;
+            } else {
+                current = detectivePath.pollLast();
+            }
+        }
+        detectivePath.pollFirst();
     }
 
     private Cell nextNotVisitedCell(Cell current) {
@@ -66,18 +99,29 @@ public class KillerModeMaze extends Maze {
     }
 
     private void moveKiller() {
-        if (killerPath == null || killerPath.isEmpty() || countSteps == 5) {
+        if (killerPath == null || killerPath.isEmpty() || killerSteps == 5) {
             findKillerPath();
-            countSteps = 0;
+            killerSteps = 0;
         }
         killer = killerPath.pollFirst();
-        countSteps++;
+        killerSteps++;
+    }
+
+    private void moveDetective() {
+        if (detectivePath == null || detectivePath.isEmpty() || detectiveSteps == 5) {
+            findDetectivePath();
+            detectiveSteps = 0;
+        }
+        if (detectivePath.peekFirst() != player) {
+            detective = detectivePath.pollFirst();
+        }
+        detectiveSteps++;
     }
 
     void movePlayer(int direction) {
         super.movePlayer(direction);
 
-        if (player == exit) {
+        if (killerIsCatched || player == exit) {
             return;
         } else if (player == killer) {
             playerIsDead = true;
@@ -88,6 +132,16 @@ public class KillerModeMaze extends Maze {
 
         if (killer == player) {
             playerIsDead = true;
+            return;
+        } else if (killer == detective) {
+            killerIsCatched = true;
+            return;
+        }
+
+        moveDetective();
+
+        if (detective == killer) {
+            killerIsCatched = true;
             return;
         }
     }

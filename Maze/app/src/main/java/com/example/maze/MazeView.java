@@ -134,16 +134,18 @@ public class MazeView extends View {
 
     private void killerModeDraw(Canvas canvas, float margin) {
         KillerModeMaze killerModeMaze = (KillerModeMaze) maze;
-        canvas.drawRect(killerModeMaze.killer.col * cellSize + margin,
-                killerModeMaze.killer.row * cellSize + margin,
-                (killerModeMaze.killer.col + 1) * cellSize - margin,
-                (killerModeMaze.killer.row + 1) * cellSize - margin,
-                killerPaint);
-        canvas.drawRect(killerModeMaze.detective.col * cellSize + margin,
-                killerModeMaze.detective.row * cellSize + margin,
-                (killerModeMaze.detective.col + 1) * cellSize - margin,
-                (killerModeMaze.detective.row + 1) * cellSize - margin,
-                detectivePaint);
+        if (!killerModeMaze.killerIsCatched) {
+            canvas.drawRect(killerModeMaze.killer.col * cellSize + margin,
+                    killerModeMaze.killer.row * cellSize + margin,
+                    (killerModeMaze.killer.col + 1) * cellSize - margin,
+                    (killerModeMaze.killer.row + 1) * cellSize - margin,
+                    killerPaint);
+            canvas.drawRect(killerModeMaze.detective.col * cellSize + margin,
+                    killerModeMaze.detective.row * cellSize + margin,
+                    (killerModeMaze.detective.col + 1) * cellSize - margin,
+                    (killerModeMaze.detective.row + 1) * cellSize - margin,
+                    detectivePaint);
+        }
     }
 
     void updateMaze(int direction) {

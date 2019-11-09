@@ -12,8 +12,9 @@ class Maze implements Serializable {
     boolean playerIsDead;
     boolean playerEscapes;
 
-    static final int COLS = 6;
-    static final int ROWS = 9;
+    // COLS : ROWS = 2 : 3
+    static final int COLS = 10;
+    static final int ROWS = 15;
     static final float WALL_THICKNESS = 10;
 
     static final int UPWARD = 1;
