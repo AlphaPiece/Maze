@@ -30,4 +30,29 @@ class Cell implements Serializable {
         System.err.println("Cell.isValidDirection: invalid input");
         return false;
     }
+
+    /**
+     * Check if this cell is adjacent to 'other'.
+     */
+    boolean isAdjacent(Cell other) {
+        if (this.col == other.col) {
+            if ((this.row - other.row == 1 && !this.topWall) ||
+                    (other.row - this.row == 1 && !this.bottomWall))
+                return true;
+        }
+        if (this.row == other.row) {
+            if ((this.col - other.col == 1 && !this.leftWall) ||
+                    (other.col - this.col == 1 && !this.rightWall))
+                return true;
+        }
+        return false;
+    }
+
+    void printCell() {
+        System.out.print("(");
+        System.out.print(this.col);
+        System.out.print(", ");
+        System.out.print(this.row);
+        System.out.println(")");
+    }
 }

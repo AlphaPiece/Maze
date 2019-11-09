@@ -24,7 +24,7 @@ class MonsterModeMaze extends Maze {
         }
     }
 
-    void moveMonsters() {
+    private void moveMonsters() {
         ArrayList<Cell> validCells;
 
         for (int i = 0; i < numberOfMonsters; i++) {

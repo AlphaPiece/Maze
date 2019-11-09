@@ -136,4 +136,12 @@ class Maze implements Serializable {
         if (player == exit)
             playerEscapes = true;
     }
+
+    void clearVisitedMarks() {
+        for (int i = 0; i < COLS; i++) {
+            for (int j = 0; j < ROWS; j++) {
+                cells[i][j].visited = false;
+            }
+        }
+    }
 }
