@@ -119,6 +119,7 @@ public class KillerModeMaze extends Maze {
     }
 
     void movePlayer(int direction) {
+        Cell lastPlayerPosition = player;
         super.movePlayer(direction);
 
         if (killerIsCatched || player == exit) {
@@ -126,6 +127,8 @@ public class KillerModeMaze extends Maze {
         } else if (player == killer) {
             playerIsDead = true;
             return;
+        } else if (player == detective) {
+            player = lastPlayerPosition;
         }
 
         moveKiller();

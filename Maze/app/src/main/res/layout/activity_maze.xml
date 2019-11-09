@@ -69,8 +69,8 @@
 
     <Button
         android:id="@+id/mazeQuitButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="65dp"
+        android:layout_height="45dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="4dp"
         android:onClick="clickFunctionButton"
@@ -81,38 +81,45 @@
 
     <Button
         android:id="@+id/mazeSaveButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="65dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="6dp"
         android:onClick="clickFunctionButton"
         android:text="@string/mazeSaveButton"
         android:textSize="12sp"
-        app:layout_constraintStart_toEndOf="@+id/mazeQuitButton"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/mazeRestartButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="4dp"
-        android:onClick="clickFunctionButton"
-        android:text="@string/mazeRestartButton"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/mazeQuitButton"
+        app:layout_constraintStart_toEndOf="@+id/mazeQuitButton" />
 
     <Button
         android:id="@+id/mazeRecreateButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="85dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="6dp"
         android:onClick="clickFunctionButton"
         android:text="@string/mazeRecreateButton"
         android:textSize="12sp"
-        app:layout_constraintEnd_toStartOf="@+id/mazeRestartButton"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/mazeSaveButton"
+        app:layout_constraintStart_toEndOf="@+id/mazeSaveButton" />
+
+    <Button
+        android:id="@+id/mazeRestartButton"
+        android:layout_width="80dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="6dp"
+        android:onClick="clickFunctionButton"
+        android:text="@string/mazeRestartButton"
+        android:textSize="12sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/mazeRecreateButton"
+        app:layout_constraintStart_toEndOf="@+id/mazeRecreateButton" />
+
+    <Button
+        android:id="@+id/mazeHintButton"
+        android:layout_width="65dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="6dp"
+        android:text="@string/mazeHintButton"
+        android:textSize="12sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/mazeRestartButton"
+        app:layout_constraintStart_toEndOf="@+id/mazeRestartButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
